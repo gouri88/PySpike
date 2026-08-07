@@ -1,10 +1,3 @@
-"""
-utils.py
-
-Re-exports statistics helpers from `simulation`, plus a couple of small
-formatting utilities used by the Streamlit app.
-"""
-
 from simulation import compute_firing_rate, time_to_first_spike
 
 __all__ = ["compute_firing_rate", "time_to_first_spike", "format_ms", "format_hz"]
