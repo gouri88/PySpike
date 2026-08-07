@@ -1,7 +1,3 @@
-# PySpike
-
-An interactive implementation of the **Leaky Integrate-and-Fire (LIF) neuron** built from scratch in Python.
-
 This project demonstrates the fundamental computational unit used in Spiking Neural Networks (SNNs). Unlike traditional Artificial Neural Networks, neurons communicate using discrete spikes over time, making SNNs more biologically realistic and energy efficient.
 
 ## Features
