@@ -1,13 +1,3 @@
-"""
-plots.py
-
-Matplotlib plotting helpers for visualizing LIF neuron simulations:
-membrane potential traces with spike markers, spike raster/train plots,
-and the Frequency-Current (F-I) curve.
-
-All plots use a dark theme suited to an educational Streamlit interface.
-"""
-
 import matplotlib.pyplot as plt
 import numpy as np
 
