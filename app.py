@@ -1,12 +1,3 @@
-"""
-app.py
-
-Streamlit application for PySpike: an interactive Leaky Integrate-and-Fire
-(LIF) neuron simulator with membrane potential visualization, spike train
-plots, firing rate analysis, an F-I curve, and a step-by-step animation
-mode.
-"""
-
 import time
 
 import numpy as np
