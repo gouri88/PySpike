@@ -1,41 +1,7 @@
-"""
-neuron.py
-
-Implementation of a single Leaky Integrate-and-Fire (LIF) neuron, built
-from scratch using only NumPy. No spiking-neural-network frameworks used.
-
-The LIF model integrates incoming current into a membrane potential that
-leaks toward a resting value over time. When the potential crosses a
-threshold, the neuron fires a spike and the potential resets.
-"""
-
 import numpy as np
 
 
 class LIFNeuron:
-    """A single Leaky Integrate-and-Fire neuron.
-
-    Parameters
-    ----------
-    tau_m : float
-        Membrane time constant (ms). Controls how quickly the membrane
-        potential leaks back toward the resting potential.
-    v_rest : float
-        Resting membrane potential (mV).
-    v_reset : float
-        Potential the membrane is reset to immediately after a spike (mV).
-    v_threshold : float
-        Firing threshold (mV). Crossing this triggers a spike.
-    r_m : float
-        Membrane resistance (MOhm). Scales how much effect input current
-        has on the membrane potential.
-    refractory_period : float
-        Absolute refractory period (ms) during which the neuron cannot
-        fire again after a spike.
-    dt : float
-        Simulation time step (ms).
-    """
-
     def __init__(
         self,
         tau_m: float = 10.0,
@@ -65,20 +31,6 @@ class LIFNeuron:
         self.spike_times = []
 
     def step(self, i_ext: float, t: float) -> bool:
-        """Advance the neuron by one time step.
-
-        Parameters
-        ----------
-        i_ext : float
-            External input current (nA) at this time step.
-        t : float
-            Current simulation time (ms), used to log spike times.
-
-        Returns
-        -------
-        bool
-            True if the neuron fired a spike on this step.
-        """
         if self.refractory_time_left > 0:
             self.refractory_time_left -= self.dt
             self.v = self.v_reset
@@ -96,19 +48,6 @@ class LIFNeuron:
         return False
 
     def simulate(self, current_trace: np.ndarray) -> dict:
-        """Run the neuron over a full input current trace.
-
-        Parameters
-        ----------
-        current_trace : np.ndarray
-            1D array of input current values (nA), one per time step.
-
-        Returns
-        -------
-        dict
-            Dictionary with 'time', 'voltage', 'spikes' (boolean array),
-            and 'spike_times' (list of ms values).
-        """
         self.reset()
         n_steps = len(current_trace)
         time = np.arange(n_steps) * self.dt
