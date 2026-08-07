@@ -1,11 +1,3 @@
-"""
-simulator.py
-
-Thin compatibility layer re-exporting the simulation engine under an
-alternate module name, so both `simulation` and `simulator` imports work
-across the codebase.
-"""
-
 from simulation import (
     constant_current,
     step_current,
