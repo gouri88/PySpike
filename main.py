@@ -1,11 +1,3 @@
-"""
-main.py
-
-Command-line demo of the LIF neuron: runs a simulation with a constant
-input current and prints out the resulting spike statistics. No
-plotting or Streamlit dependency required.
-"""
-
 from neuron import LIFNeuron
 from simulation import constant_current, run_simulation, compute_firing_rate, time_to_first_spike
 
